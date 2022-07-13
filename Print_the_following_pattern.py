@@ -1,13 +1,10 @@
-n=int(input())
-t=n
-for i in range(n):
-    for j in range(n):
-        if i==j:
-            print(t,end=" ")
-        elif i+j==n-1:
-            print(t,end=" ")
-        else:
-            print("",end=" ")
-    t-=1
+a=int(input())
+li = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+for i in range(a):
+    for j in range(a-(i+1)):
+        print(" ",end="")
+    for j in range(i+1):
+        print(li[j],end="")
+    for j in range(i-1,-1,-1):
+        print(li[j],end="")
     print("")
-    
