@@ -1,10 +1,10 @@
-x=int(input())
-k=0
-while x!=0:
-    d=x%10
-    x=x//10
-    k=k+d
-    if k>9 and x==0:
-        x=k
-        k=0
-print(k)
+n=int(input())
+sum=0
+while n>0:
+    rem=n%10
+    sum+=rem
+    n=n//10
+    if n==0 and sum > 9:
+        n=sum
+        sum=0
+print(sum)
