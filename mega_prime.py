@@ -1,28 +1,29 @@
-n=int(input())
-k=e=0
-if n<=1:
-    print("Not Mega Prime")
-else:
-    for i in range(2,n):
-        if n%i==0:
-            e=1
-            break
-    if e==1:
-        print("Not Mega Prime")
+def isPrime(n):
+    c=0
+    for i in range(1,n+1):
+        if(n%i==0):
+            c+=1
+    if(c==2):
+        return True
     else:
-        while n:
-            k=n%10
-            j=0
-            if k==1:
-                j=1
-                break
-            else:
-                for i in range(2,k):
-                    if k%i==0:
-                        j=1
-                        break
-            n=n//10
-        if j==0:
-            print("Mega Prime")
+        return False
+n=int(input())
+res=isPrime(n)
+if(res==True):
+    flag=1
+    while(n>0):
+        rem=n%10
+        if(isPrime(rem)):
+            flag=1
         else:
-            print("Not Mega Prime")
+            flag=0
+            break
+        n//=10
+    if(flag==1):
+        print("Mega Prime")
+    else:
+        print("Not Mega Prime")
+else:
+    print("Not Mega Prime")
+            
+            
