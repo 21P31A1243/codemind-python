@@ -1,37 +1,31 @@
-def np(c):
-    s=0
-    if c!=1:
-        for i in range(2,c):
-            if(c%i==0):
-                s=1
-                break
-    if s==0:
+def prime(a):
+    c=0
+    for i in range(1,a+1):
+        if a%i==0:
+            c+=1
+    if c==2:
         return 1
     else:
         return 0
-k=int(input())
-while k:
-    a=1
-    n=int(input())
-    d=n+1
-    e=n-1
-    if n>3 and np(n)==1:
-        print(n)
-    elif n<3:
-        if np(d)==1:
-            print(d)
-        else:
-            d+=1
-    else:
-        while a:
-            if np(d)==1 and np(e)==1:
-                a=0
-            elif np(d)!=1:
-                d+=1
-            elif np(e)!=1:
-                e-=1
-        if d-n>=n-e:
-            print(e)
-        else:
-            print(d)
-    k-=1
+def near(a):
+    l=f=df=dl=0
+    for i in range(a,0,-1):
+        if prime(i)==1:
+            f=i
+            df=a-i
+            break
+    for i in range(a,10000):
+        if prime(i)==1:
+            l=i
+            dl=i-a
+            break
+    if df==dl:
+        return f
+    elif df>dl:
+        return l
+    elif df<dl:
+        return f
+t=int(input())
+for i in range(t):
+    a=int(input())
+    print(near(a))
